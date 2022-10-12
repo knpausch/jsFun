@@ -34,18 +34,23 @@ const kittyPrompts = {
         return orangeKittyNames;
 
     // Annotation:
-    // Used filter then map
-    // Returned result of filter & map (an array)
+    // Used 2 methods to accomplish this: filter & map
+    // Returned an array of string names
 
   },
 
   sortByAge() {
     // Sort the kitties by their age
 
-    // 
+    const descendingAges = kitties.sort((catA, catB) => {
+      return catB.age - catA.age;
+    });
+
+    return descendingAges;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Researchd .sort to accomplish this (a-b = ascending order, b-a = descending order)
+    // Returned an array of objects
   },
 
   growUp() {
@@ -62,7 +67,15 @@ const kittyPrompts = {
     // },
     // ...etc]
 
-    /* CODE GOES HERE */
+    const ageUp = kitties.map(kitty => {
+      kitty.age += 2;
+      return kitty;
+    });
+
+    return ageUp;
+
+    //used map
+    //altered kitty.age by 2 and reassigned it then returned kitty object
   }
 };
 
