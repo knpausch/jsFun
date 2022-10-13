@@ -20,18 +20,18 @@ const { dinosaurs, humans, movies } = require('./datasets/dinosaurs');
 
 // DATASET: kitties from ./datasets/kitties
 const kittyPrompts = {
-  orangePetNames() {
+  orangePetNames(animal) {
     // Return an array of just the names of kitties who are orange e.g.
         // ['Tiger', 'Snickers']
 
-        const orangeKitties = kitties.filter(kitty => {
-          return kitty.color === 'orange';
+        const orangeAnimals = animal.filter(pet => {
+          return pet.color === 'orange';
         });
-        const orangeKittyNames = orangeKitties.map(cat => {
-          return cat.name;
+        const orangeAnimalNames = orangeAnimals.map(pet => {
+          return pet.name;
         });
 
-        return orangeKittyNames;
+        return orangeAnimalNames;
 
     // Annotation:
     // Used 2 methods to accomplish this: filter & map
@@ -39,11 +39,11 @@ const kittyPrompts = {
 
   },
 
-  sortByAge() {
+  sortByAge(animal) {
     // Sort the kitties by their age
 
-    const descendingAges = kitties.sort((catA, catB) => {
-      return catB.age - catA.age;
+    const descendingAges = animal.sort((animalA, animalB) => {
+      return animalB.age - animalA.age;
     });
 
     return descendingAges;
@@ -53,7 +53,7 @@ const kittyPrompts = {
     // Returned an array of objects
   },
 
-  growUp() {
+  growUp(animal) {
     // Return an array of kitties who have all grown up by 2 years e.g.
     // [{
     //   name: 'Felicia',
@@ -67,9 +67,9 @@ const kittyPrompts = {
     // },
     // ...etc]
 
-    const ageUp = kitties.map(kitty => {
-      kitty.age += 2;
-      return kitty;
+    const ageUp = animal.map(pet => {
+      pet.age += 2;
+      return pet;
     });
 
     return ageUp;
