@@ -504,7 +504,7 @@ const breweryPrompts = {
     return beerCount;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // 1 value number? Good time to use .reduce()
   },
 
   getBreweryBeerCount() {
@@ -525,7 +525,7 @@ const breweryPrompts = {
     return breweriesBeerList;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Reread your goal!
   },
 
   getSingleBreweryBeerCount(breweryName) {
