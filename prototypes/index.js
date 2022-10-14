@@ -516,7 +516,13 @@ const breweryPrompts = {
     // ...etc.
     // ]
 
-    /* CODE GOES HERE */
+    const breweriesBeerList = breweries.map((currentBrewery) => {
+      const breweryInfo = {};
+      breweryInfo.name = currentBrewery.name;
+      breweryInfo.beerCount = currentBrewery.beers.length;
+      return breweryInfo;
+    });
+    return breweriesBeerList;
 
     // Annotation:
     // Write your annotation here as a comment
