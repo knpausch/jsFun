@@ -532,12 +532,15 @@ const breweryPrompts = {
     // Return a number that is the count of beers that the specified
     // brewery has e.g.
     // given 'Ratio Beerworks', return 5
-
-
-    /* CODE GOES HERE */
+    const beerCount = breweries.find((brewery)=> {
+      return brewery.name === breweryName;
+    })
+    return beerCount.beers.length;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // .find returns the whole element (object in this case) then you
+    // use the function's return to access its value 
+    // (return beerCount.beers.lenght)
   },
 
   findHighestAbvBeer() {
