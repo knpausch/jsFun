@@ -144,10 +144,20 @@ const modPrompts = {
     //   { mod: 4, studentsPerInstructor: 8 }
     // ]
 
-    /* CODE GOES HERE */
+    const modInfo = mods.reduce((acc, currentMod)=> {
+      const modClass = {};
+      modClass.mod = currentMod.mod
+      const ratio = currentMod.students/currentMod.instructors;
+      modClass.studentsPerInstructor = ratio;
+      acc.push(modClass);
+      return acc;
+    },[]);
+    return modInfo;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // reduce is great is return a single array
+    // feel free to delcare an emty object in your 
+    // reduce and add keys/values to it later
   }
 };
 
