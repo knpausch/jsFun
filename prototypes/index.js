@@ -548,10 +548,18 @@ const breweryPrompts = {
     // e.g.
     // { name: 'Barrel Aged Nature\'s Sweater', type: 'Barley Wine', abv: 10.9, ibu: 40 }
 
-    /* CODE GOES HERE */
+    const arrayOfBrews = breweries.reduce((acc, current) => {
+      acc.push(current.beers);
+      return acc;
+    }, []).flat();
+    const sorrtedArray = arrayOfBrews.sort((beerA, beerB) => {
+      return beerB.abv - beerA.abv;
+    });
+    return sorrtedArray[0];
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Use .flat() at end of array to flatten it (for instances when
+    // your array is an array of something [[{obj}]] => [{obj}])
   }
 };
 
