@@ -389,10 +389,16 @@ const weatherPrompts = {
     // return an array of all the average temperatures. Eg:
     // [ 40, 40, 44.5, 43.5, 57, 35, 65.5, 62, 14, 46.5 ]
 
-    /* CODE GOES HERE */
+    const tempArray = weather.reduce((acc, current) => {
+      const tempAvg = (current.temperature.high + current.temperature.low)/2;
+      acc.push(tempAvg);
+      return acc;
+    }, [])
+    return tempArray;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Create local variables (const, let) to hold your calculations
+    // then push it into your acc so its easier to read
   },
 
   findSunnySpots() {
