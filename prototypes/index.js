@@ -427,11 +427,21 @@ const weatherPrompts = {
     //   humidity: 84,
     //   temperature: { high: 49, low: 38 }
     // }
-
-    /* CODE GOES HERE */
+    const humidList = weather.reduce((acc, current) => {
+      acc.push(current.humidity);
+      return acc;
+    }, []);
+    const humidListSorted = humidList.sort((humidA, humidB) => {
+      return humidB-humidA;
+    })  
+    const mostHumid = weather.find(currentWeather => {
+      return currentWeather.humidity === humidListSorted[0];
+    });
+    return mostHumid;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Its okay to break it up inter different iterators to solve
+    // the problem
 
   }
 };

@@ -389,7 +389,7 @@ describe("PROTOTYPES", () => {
         expect(e).to.deep.equal(['Atlanta, Georgia is sunny.', 'New Orleans, Louisiana is sunny.', 'Raleigh, North Carolina is mostly sunny.']
         )
       }),
-      it.skip("findHighestHumidity", () => {
+      it("findHighestHumidity", () => {
         const e = weatherPrompts.findHighestHumidity();
 
         expect(e).to.deep.equal({
