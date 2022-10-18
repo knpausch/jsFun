@@ -407,11 +407,16 @@ const weatherPrompts = {
     // [ 'Atlanta, Georgia is sunny.',
     // 'New Orleans, Louisiana is sunny.',
     // 'Raleigh, North Carolina is mostly sunny.' ]
-
-    /* CODE GOES HERE */
+    const sunnyArray = weather.filter(current => {
+      return current.type === "sunny" || current.type === "mostly sunny";
+    })
+    const formattedArray = sunnyArray.map(current => {
+      return `${current.location} is ${current.type}.`;
+    })
+    return formattedArray;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Its okay to break up the problem into multiple iterators
   },
 
   findHighestHumidity() {
