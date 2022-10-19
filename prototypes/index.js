@@ -491,10 +491,31 @@ const nationalParksPrompts = {
     //   parksVisited: ["Rocky Mountain", "Acadia", "Zion"]
     //}
 
-    /* CODE GOES HERE */
+  const visitInfo = {};
+  
+  const parksToVisitList = nationalParks.filter((current) => {
+    return current.visited === false;
+  })
+  .map((current) => {
+    return current.name;
+  })
+
+  const parksVisitedList = nationalParks.filter((current) => {
+    return current.visited === true;
+  })
+  .map((current) => {
+    return current.name;
+  })
+
+  visitInfo.parksToVisit = parksToVisitList;
+  visitInfo.parksVisited = parksVisitedList;
+  
+  return visitInfo;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // You can chain iterators if you're feeling confident
+    // Use the iterator to collect the info you need and use 
+    // the function to help format your answer
   },
 
   getParkInEachState() {

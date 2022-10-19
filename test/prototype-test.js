@@ -402,7 +402,7 @@ describe("PROTOTYPES", () => {
   });
 
   describe("National Park Prompts", () => {
-    it.skip("getParkVisitList", () => {
+    it("getParkVisitList", () => {
       const e = nationalParksPrompts.getParkVisitList();
 
       expect(e).to.deep.equal({
