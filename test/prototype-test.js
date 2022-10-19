@@ -428,7 +428,7 @@ describe("PROTOTYPES", () => {
             'rock climbing'
           ])
       }),
-      it.skip("getParkInEachState", () => {
+      it("getParkInEachState", () => {
         const e = nationalParksPrompts.getParkInEachState();
 
         expect(e).to.deep.equal(

@@ -527,11 +527,15 @@ const nationalParksPrompts = {
     // { Utah: 'Zion' },
     // { Florida: 'Everglades' } ]
 
-
-    /* CODE GOES HERE */
+    const stateInfoList = nationalParks.map((current) => {
+      const stateInfo = {};
+      stateInfo[current.location] = current.name;
+      return stateInfo;
+    })
+    return stateInfoList;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Its okay to break down the problem and start over with basics
   },
 
   getParkActivities() {
