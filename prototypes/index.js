@@ -286,11 +286,13 @@ const classPrompts = {
     //   { roomLetter: 'E', program: 'FE', capacity: 22 },
     //   { roomLetter: 'G', program: 'FE', capacity: 29 }
     // ]
-
-    /* CODE GOES HERE */
+    const feList = classrooms.filter((currentClass) => {
+      return currentClass.program === "FE";
+    })
+    return feList;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Keep it simple, don't overthink it
   },
 
   totalCapacities() {
