@@ -303,19 +303,44 @@ const classPrompts = {
     //   beCapacity: 96
     // }
 
-    /* CODE GOES HERE */
+    const capInfo = {};
+    const feCap = classrooms.reduce((acc, current) => {
+      if(current.program === "FE"){
+      acc+=current.capacity;
+    }
+      return acc;
+    }, 0)
+    
+    const beCap = classrooms.reduce((acc, current) => {
+    if(current.program === "BE"){
+      acc+=current.capacity;
+    }
+      return acc;
+    }, 0)
+    
+    capInfo.feCapacity = feCap;
+    capInfo.beCapacity = beCap;
+    return capInfo;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Remember! You don't need to accomplish everything in the 
+    // iterator! Use iterator as single task then use the function
+    // itself to construct your answer (exmample, use reduce to
+    // get feCapacity then use the function to construct your obect)
   },
 
   sortByCapacity() {
     // Return the array of classrooms sorted by their capacity (least capacity to greatest)
 
-    /* CODE GOES HERE */
+    const capSortedList = classrooms.sort((classA, classB) => {
+      return classA.capacity-classB.capacity;
+    })
+    return capSortedList;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Don't forget: when using sorted(), you can still access any
+    // property in the object still(example: sorted used on classrooms
+    // objects on its .capacity property buy typing classA.capacity);
   }
 };
 
