@@ -249,10 +249,17 @@ const cakePrompts = {
     // every cake in the dataset e.g.
     // ['dutch process cocoa', 'toasted sugar', 'smoked sea salt', 'berries', ..etc]
 
-    /* CODE GOES HERE */
+    return cakes.reduce((acc, current) => {
+      current.toppings.forEach((current) => {
+        if(!acc.includes(current)){
+              acc.push(current);
+        }
+      })
+      return acc;
+    }, [])
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Reduce + forEach is great combo to get inside an array of an array
   },
 
   groceryList() {
