@@ -235,10 +235,13 @@ const cakePrompts = {
     // Return the total amount of cakes in stock e.g.
     // 59
 
-    /* CODE GOES HERE */
+    return cakes.reduce((total, currentCake) => {
+      total += currentCake.inStock;
+      return total;
+    }, 0)
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Keep it simple and easy baby! 1 value? Use reduce!
   },
 
   allToppings() {

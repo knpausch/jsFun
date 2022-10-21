@@ -221,7 +221,7 @@ describe("PROTOTYPES", () => {
       }])
     });
 
-    it.skip("totalInventory", () => {
+    it("totalInventory", () => {
       const e = cakePrompts.totalInventory();
 
       expect(e).to.deep.equal(59)
