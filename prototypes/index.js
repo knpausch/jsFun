@@ -554,10 +554,19 @@ const nationalParksPrompts = {
     //   'backpacking',
     //   'rock climbing' ]
 
-    /* CODE GOES HERE */
+    const activitiesList = nationalParks.reduce((acc, current) => {
+      current.activities.forEach((current2) => {
+        if(!acc.includes(current2)){
+              acc.push(current2);
+        }
+      })
+      return acc;
+    }, [])
+    return activitiesList;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Reduce + forEach great combo! forEach is great for getting inside
+    // array of arrays. It can modify the acc on the outside
   }
 };
 
