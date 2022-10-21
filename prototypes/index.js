@@ -188,10 +188,17 @@ const cakePrompts = {
     //    ..etc
     // ]
 
-    /* CODE GOES HERE */
+    return cakes.reduce((acc, current) => {
+      const cakeInfo = {};
+      cakeInfo.flavor = current.cakeFlavor;
+      cakeInfo.inStock = current.inStock;
+      acc.push(cakeInfo);
+      return acc;
+    }, [])
 
     // Annotation:
-    // Write your annotation here as a comment
+    // When you're feeling confident, you can just return the iterator
+    // instead of assigning it to a variable and returning that variable
   },
 
   onlyInStock() {
@@ -215,10 +222,13 @@ const cakePrompts = {
     // ..etc
     // ]
 
-    /* CODE GOES HERE */
+    return cakes.filter((current) => {
+      return current.inStock > 0;
+    })
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Keep up that pseudo code! At least state your goal and what
+    // iterator you think you might use
   },
 
   totalInventory() {
