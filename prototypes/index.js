@@ -273,10 +273,19 @@ const cakePrompts = {
     //    ...etc
     // }
 
-    /* CODE GOES HERE */
+    const ingredientList = cakes.reduce((acc, current) => {
+      current.toppings.map((current) => {
+        if(!acc[current]){
+          acc[current] = 0;
+        }
+        acc[current] += 1;
+      })
+      return acc;
+    }, {})
+    return ingredientList;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Read over this, its a bit complicated
   }
 };
 
