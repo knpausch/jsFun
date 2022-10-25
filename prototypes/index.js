@@ -382,7 +382,7 @@ const classPrompts = {
 // DATASET: books from './datasets/books
 
 const bookPrompts = {
-  removeViolence() {
+  removeViolence(books) {
     // Your function should access the books data through a parameter (it is being passed as an argument in the test file)
     // return an array of all book titles that are not horror or true crime. Eg:
 
@@ -392,14 +392,19 @@ const bookPrompts = {
     //   'The Curious Incident of the Dog in the Night - Time', 'The Bell Jar',
     //   'Catch-22', 'Treasure Island']
 
-
-    /* CODE GOES HERE */
+    const booksNotHorrorOrTrueCrime = books.filter((currentBook) => {
+      return currentBook.genre != "Horror" && currentBook.genre != "True Crime"
+    })
+    const titleList = booksNotHorrorOrTrueCrime.map((currentBook) => {
+      return currentBook.title
+    })
+    return titleList
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Slow down and read the goal
 
   },
-  getNewBooks() {
+  getNewBooks(books) {
     // return an array of objects containing all books that were
     // published in the 90's and 00's. Inlucde the title and the year Eg:
 
@@ -407,10 +412,21 @@ const bookPrompts = {
     //  { title: 'Life of Pi', year: 2001 },
     //  { title: 'The Curious Incident of the Dog in the Night-Time', year: 2003 }]
 
-    /* CODE GOES HERE */
+    const booksFrom90sAnd00 = books.filter((currentBook) => {
+      return currentBook.published >= 1990
+    })
+    
+    const booksFormattedList = booksFrom90sAnd00.reduce((acc, currentBook) => {
+      const bookInfo = {}
+      bookInfo.title = currentBook.title;
+      bookInfo.year = currentBook.published
+      acc.push(bookInfo)
+      return acc
+    }, [])
+    return booksFormattedList
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Don't forget to intiaize reduce with a starting point
   },
 
   getBooksByYear(books, year) {
@@ -423,10 +439,22 @@ const bookPrompts = {
     //  { title: 'Life of Pi', year: 2001 },
     //  { title: 'The Curious Incident of the Dog in the Night-Time', year: 2003 }]
 
-    /* CODE GOES HERE */
+    const booksAfterYear = books.filter((currentBook) => {
+      return currentBook.published >= year
+    })
+    const bookFormatted = booksAfterYear.reduce((acc, currentBook) => {
+      const bookInfo = {}
+      bookInfo.title = currentBook.title
+      bookInfo.year = currentBook.published
+      acc.push(bookInfo)
+      return acc;
+    }, [])
+    return bookFormatted
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Use what you know! Build upon it based off the recent exercise
+    // Buiild the full skeleton of an iterator before proceeding
+    // Don't forget about using that acc and returning it
   }
 
 };
