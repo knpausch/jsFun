@@ -99,7 +99,7 @@ const kittyPrompts = {
 
 // DATASET: clubs from ./datasets/clubs
 const clubPrompts = {
-  membersBelongingToClubs() {
+  membersBelongingToClubs(clubs) {
     // Your function should access the clubs data through a parameter (it is being passed as an argument in the test file)
     // Create an object whose keys are the names of people, and whose values are
     // arrays that include the names of the clubs that person is a part of. e.g.
@@ -109,10 +109,33 @@ const clubPrompts = {
     //   ...etc
     // }
 
-    /* CODE GOES HERE */
+    const keysList = clubs.reduce((acc, currentClub) => {
+      currentClub.members.forEach((currentPerson) => {
+        if(!acc.includes(currentPerson)){
+           acc.push(currentPerson)
+        }
+      })
+      return acc;
+    }, [])
+  
+    const formatList = keysList.reduce((acc, currentPerson) => {
+      const clubsList = []
+      clubs.forEach((currentClub) => {
+        if(currentClub.members.includes(currentPerson)){
+          clubsList.push(currentClub.club)
+        }
+      })
+      acc[currentPerson] = clubsList
+      return acc
+    }, {})
+    
+    return formatList
 
     // Annotation:
-    // Write your annotation here as a comment
+    // You CAN do this. You are capable of mastering iterators
+    // Yes! Break the problem down, 1 goal at a time 
+    // (get keys, format list, get values)
+    // Don't overthink it, just try it
   }
 };
 
