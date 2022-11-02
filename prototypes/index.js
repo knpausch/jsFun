@@ -750,10 +750,16 @@ const boardGamePrompts = {
     // e.g. given an argument of "strategy", return
     // ["Chess", "Catan", "Checkers", "Pandemic", "Battle Ship", "Azul", "Ticket to Ride"]
 
-    /* CODE GOES HERE */
+    return boardGames[type].map((currentGame) => {
+      return currentGame.name
+    })
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Keep that psuedocode up!
+    // Kept it simple, if it's the same about of elements, then use map
+    // like you did, then just access the info you need, in this case,
+    // just the names
+    // great use of bracket notation and deciding what array to iterate on
   },
 
   listGamesAlphabetically(type) {
