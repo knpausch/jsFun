@@ -768,10 +768,15 @@ const boardGamePrompts = {
     // e.g. given an argument of "childrens", return
     // ["Candy Land", "Connect Four", "Operation", "Trouble"]
 
-    /* CODE GOES HERE */
+    const genreList = boardGames[type].map((currentGame) => {
+      return currentGame.name
+    })
+    return genreList.sort()
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Rewriting it is good practice but in the test, try to call the 
+    //previous function to save time
+    // Great use of sort on the returned item 
   },
 
   findHighestRatedGamesByType(type) {
