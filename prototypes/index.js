@@ -798,10 +798,15 @@ const boardGamePrompts = {
     // e.g. given the argument of "strategy", return 7
     // note: do not worry about rounding your result.
 
-    /* CODE GOES HERE */
+    const total = boardGames[type].reduce((acc, currentGame) => {
+      acc += currentGame.rating
+      return acc
+    }, 0)
+    const avg = total/boardGames[type].length
+    return avg
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Remeber to finish reading instructions!! Forgot the note there
   },
 
   averageScoreByTypeAndPlayers(type, maximumPlayers) {

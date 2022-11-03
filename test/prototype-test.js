@@ -522,7 +522,7 @@ describe("PROTOTYPES", () => {
       expect(highestParty).to.deep.equal({ name: 'Codenames', rating: 7.4, maxPlayers: 8 });
     });
 
-    it.skip("averageScoreByType", () => {
+    it("averageScoreByType", () => {
       const avScoreStrat = boardGamePrompts.averageScoreByType('strategy');
       const avScoreChildren = boardGamePrompts.averageScoreByType('childrens');
       const avScoreParty = boardGamePrompts.averageScoreByType('party');
