@@ -512,7 +512,7 @@ describe("PROTOTYPES", () => {
       expect(partyGames).to.deep.equal(["Cards Against Humanity", "Codenames", "Sushi Go! Party", "Tsuro", "Werewolf"]);
     });
 
-    it.skip("findHighestRatedGamesByType", () => {
+    it("findHighestRatedGamesByType", () => {
       const highestStrategy = boardGamePrompts.findHighestRatedGamesByType('strategy');
       const highestChildrens = boardGamePrompts.findHighestRatedGamesByType('childrens');
       const highestParty = boardGamePrompts.findHighestRatedGamesByType('party');

@@ -784,10 +784,13 @@ const boardGamePrompts = {
     // e.g. given the argument of 'party', return
     // { name: 'Codenames', rating: 7.4, maxPlayers: 8 },
 
-    /* CODE GOES HERE */
+    const sortedList = boardGames[type].sort((a, b) => {
+      return b.rating - a.rating
+    })
+    return sortedList[0]
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Keep up that pseudocoding! It's very helpful
   },
 
   averageScoreByType(type) {
