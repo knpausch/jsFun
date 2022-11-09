@@ -815,10 +815,20 @@ const boardGamePrompts = {
     // e.g. given the arguments of "strategy" and 2, return 6.16666666667
     // note: do not worry about rounding your result.
 
-    /* CODE GOES HERE */
+    const gamesWithGiveCriteriaList = boardGames[type].filter((currentGame) => {
+      return currentGame.maxPlayers === maximumPlayers
+    })
+    const sum = gamesWithGiveCriteriaList.reduce((acc, currentGame) => {
+      acc += currentGame.rating
+      return acc
+    }, 0)
+    const avg = sum/gamesWithGiveCriteriaList.length
+    return avg
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Keep it chill n slow so you execute it on the first try like you 
+    // did just now
+    // Use them variables! No need to do code golf 
   }
 };
 
