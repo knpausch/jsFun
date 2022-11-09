@@ -872,10 +872,22 @@ const turingPrompts = {
     //  { name: 'Robbie', studentCount: 18 }
     // ]
 
-    /* CODE GOES HERE */
+    return instructors.map((currentTeacher) => {
+      let teachInfo = {}
+      teachInfo.name = currentTeacher.name
+      teachInfo.studentCount = 0
+      const studentObj = cohorts.find((currentCohort) => {
+        return currentCohort.module === currentTeacher.module
+      })
+      teachInfo.studentCount = studentObj.studentCount
+      return teachInfo
+    })
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Good pseudo coding, even though it wasn't 100% accurate it got the
+    // basics of what you'll need to do, then you figured it out
+    // Nested iterators are great! Use em!
+    // Nothing wrong with initializing variables
   },
 
   studentsPerInstructor() {
@@ -885,10 +897,19 @@ const turingPrompts = {
     // cohort1804: 10.5
     // }
 
-    /* CODE GOES HERE */
+    return cohorts.reduce((acc, currentCohort) => {
+      acc["cohort" + currentCohort.cohort] = 0
+      let teachObj = instructors.filter((currentTeacher) => {
+        return currentTeacher.module === currentCohort.module
+      })
+      acc["cohort" + currentCohort.cohort] = (currentCohort.studentCount/teachObj.length)
+      return acc
+    }, {})
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Great pseudo coding! You hit the main points and adjusted when
+    // you gained more understanding of the problem
+    // Nothing wrong with variables and initializing, the more the merrier!
   },
 
   modulesPerTeacher() {
