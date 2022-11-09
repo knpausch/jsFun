@@ -946,10 +946,27 @@ const bossPrompts = {
     //   { bossName: 'Scar', sidekickLoyalty: 16 }
     // ]
 
-    /* CODE GOES HERE */
+    const bossNameList = Object.keys(bosses)
+    const newBossList = bossNameList.map((currentBoss) => {
+      const loyaltySum = sidekicks.reduce((acc, currentSidekick) => {
+        if(bosses[currentBoss].name.toLowerCase() === currentSidekick.boss.toLowerCase()){
+          acc += currentSidekick.loyaltyToBoss
+        }
+        return acc
+      }, 0)
+      return ({
+        bossName: bosses[currentBoss].name, 
+        sidekickLoyalty: loyaltySum
+      })
+    })
+    return newBossList
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Remeber to use object keys
+    // You'll use both datasets when there's a double
+    // Object.keys returns strings of the object's keys in lowercase 
+    //  so may any toLowerCase() ajustments if you need to compare 
+    // it to anything
   }
 };
 
